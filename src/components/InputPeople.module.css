@@ -1,0 +1,28 @@
+.input {
+  width: 100%;
+  font-size: 1rem;
+  font-family: "Space Mono", monospace;
+  font-weight: 700;
+  background-color: hsl(189, 41%, 97%);
+  color: hsl(183, 100%, 15%);
+  text-align: right;
+  border: none;
+  border-radius: 5px;
+  padding-left: 2rem;
+  padding-right: 0.5rem;
+  box-sizing: border-box;
+  background-repeat: no-repeat;
+  background-position: 0.5rem center;
+  cursor: pointer;
+  background-image: url("../media/icon-person.svg");
+}
+
+.input:focus {
+  outline-color: hsl(172, 67%, 45%);
+}
+
+.warning.input {
+  outline-color: hsl(12, 91%, 69%);
+  /* hack to keep outline when the focus is lost */
+  box-shadow: 0 0 0 1pt hsl(12, 91%, 69%);
+}

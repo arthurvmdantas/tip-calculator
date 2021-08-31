@@ -1,0 +1,187 @@
+@import url("https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&display=swap");
+
+:root {
+  --very-dark-cyan: hsl(183, 100%, 15%);
+  --strong-cyan: hsl(172, 67%, 45%);
+  --dark-grayish-cyan-1: hsl(186, 14%, 43%);
+  --dark-grayish-cyan-2: hsl(184, 14%, 56%);
+  --light-grayish-cyan-1: hsl(185, 41%, 84%);
+  --light-grayish-cyan-2: hsl(189, 41%, 97%);
+  --white: hsl(0, 0%, 100%);
+}
+::placeholder {
+  color: hsl(186, 14%, 43%);
+}
+
+html {
+  font-size: 24px;
+}
+
+body {
+  background: var(--light-grayish-cyan-1);
+  margin: 0;
+}
+
+main {
+  margin-top: 1rem;
+  background: hsl(0, 0%, 100%);
+  border-radius: 20px 20px 0 0;
+  padding: 1rem 0.5rem;
+  display: flex;
+  flex-direction: column;
+}
+
+p {
+  font-size: 0.6rem;
+  font-weight: 700;
+  color: var(--dark-grayish-cyan-1);
+  margin: 0.8rem 0 0.2rem 0;
+  text-align: left;
+}
+
+.App {
+  font-family: "Space Mono", monospace;
+  text-align: center;
+  margin-top: 2rem;
+}
+
+.topZero {
+  margin-top: 0;
+}
+
+.tips {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-auto-rows: 1fr;
+  gap: 0.5rem;
+  margin-top: 0.5rem;
+}
+
+.controls {
+  margin: 0 0.3rem;
+}
+
+.result {
+  display: grid;
+  gap: 0.5rem;
+  grid-template-areas:
+    "tip-label tip-result"
+    "total-label total-result"
+    "button-reset button-reset";
+
+  font-size: 0.6rem;
+  font-weight: 700;
+  color: hsl(0, 0%, 100%);
+  background-color: hsl(183, 100%, 15%);
+  padding: 1rem 0.8rem;
+  border-radius: 15px;
+  margin-top: 1rem;
+}
+
+.result span {
+  font-size: 0.5rem;
+  display: block;
+  color: hsl(184, 14%, 56%);
+}
+
+.tip-label {
+  grid-area: tip-label;
+  justify-self: left;
+  text-align: left;
+}
+
+.tip-result {
+  grid-area: tip-result;
+}
+
+.tip-result,
+.total-result {
+  font-size: 1.5rem;
+  justify-self: right;
+  color: var(--strong-cyan);
+}
+
+.total-label {
+  grid-area: total-label;
+  justify-self: left;
+  text-align: left;
+}
+
+.total-result {
+  grid-area: total-result;
+}
+
+.button-reset {
+  font-family: "Space Mono", monospace;
+  font-weight: 700;
+  font-size: 0.8rem;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  grid-area: button-reset;
+  background-color: var(--strong-cyan);
+  padding: 0.2rem 0;
+  color: var(--very-dark-cyan);
+  height: 2rem;
+  align-self: end;
+}
+
+.button-reset:hover {
+  background: var(--light-grayish-cyan-1);
+  color: var(--very-dark-cyan);
+}
+
+.labelPeople {
+  display: flex;
+  justify-content: space-between;
+}
+
+.errorMessage {
+  display: var(--errorMessageDisplay);
+  color: hsl(12, 91%, 69%);
+}
+
+@media screen and (min-width: 800px) {
+  main {
+    padding: 1rem;
+    height: 15rem;
+    flex-direction: row;
+    max-width: 780px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 10vh;
+    border-radius: 15px;
+    box-shadow: 8px 8px 25px -20px rgba(0, 0, 0, 0.97);
+  }
+
+  section {
+    width: 50%;
+  }
+
+  .App {
+    margin-top: 10vh;
+  }
+
+  .tips {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+
+  .controls {
+    margin: 0;
+    margin-right: 3%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+  }
+
+  .result {
+    margin-top: 0;
+    padding: 1rem 1.2rem;
+    grid-template-rows: 25% 25% auto;
+  }
+
+  .tip-label,
+  .total-label {
+    margin-top: 0.5rem;
+  }
+}

@@ -1,0 +1,23 @@
+.button {
+  --very-dark-cyan: hsl(183, 100%, 15%);
+  --light-grayish-cyan-1: hsl(185, 41%, 84%);
+  --strong-cyan: hsl(172, 67%, 45%);
+
+  background-color: var(--very-dark-cyan);
+  font-family: "Space Mono", monospace;
+  font-weight: 700;
+  color: hsl(0, 0%, 100%);
+  font-size: 0.8rem;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.button:hover {
+  background: var(--light-grayish-cyan-1);
+  color: var(--very-dark-cyan);
+}
+
+.tip-active {
+  background-color: var(--strong-cyan);
+}
