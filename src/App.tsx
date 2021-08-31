@@ -48,9 +48,13 @@ export default function App() {
 
   return (
     <div className="App">
-      <picture>
-        <img src={Logo} alt="Logo" />
-      </picture>
+      <header>
+        <h1>
+          <picture>
+            <img src={Logo} alt="Logo" />
+          </picture>
+        </h1>
+      </header>
       <main>
         <section className="controls">
           <div>

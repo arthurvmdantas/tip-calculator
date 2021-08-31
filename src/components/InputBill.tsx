@@ -41,6 +41,7 @@ export default function InputBill({
       onChange={handleBillInput}
       onKeyDown={handleBillBackspace}
       value={state.toFixed(2)}
+      aria-label="Bill"
       {...rest}
     />
   );

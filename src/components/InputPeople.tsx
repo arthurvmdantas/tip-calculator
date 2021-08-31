@@ -40,6 +40,7 @@ export default function InputPeople({
       className={inputClass}
       onChange={handleChange}
       onKeyDown={handleKeyDown}
+      aria-label="People"
       value={state}
     />
   );
