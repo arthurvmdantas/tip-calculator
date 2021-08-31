@@ -4,4 +4,4 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 This is a solution to the [Tip calculator app challenge on Frontend Mentor](https://www.frontendmentor.io/challenges/tip-calculator-app-ugJNGbJUX).
 
-![Desktop Screenshot](./media/screenshot-desktop.png)
+![Desktop Screenshot](./media/tip-calculator.png)
