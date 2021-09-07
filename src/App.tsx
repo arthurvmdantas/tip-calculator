@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 
 import "./styles.css";
-import Logo from "./media/logo.svg";
+import Logo from "./assets/logo.svg";
 
 import InputPeople from "./components/InputPeople";
 import InputBill from "./components/InputBill";
