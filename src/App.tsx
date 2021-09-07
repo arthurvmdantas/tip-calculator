@@ -28,6 +28,29 @@ function totalPerPerson(bill: number, tip: number, people: number): number {
   return totalPerPerson;
 }
 
+const tips = [
+  {
+    text: "5%",
+    value: 5
+  },
+  {
+    text: "10%",
+    value: 10
+  },
+  {
+    text: "15%",
+    value: 15
+  },
+  {
+    text: "25%",
+    value: 25
+  },
+  {
+    text: "50%",
+    value: 50
+  }
+]
+
 export default function App() {
   const [bill, setBill] = useState(0);
   const [people, setPeople] = useState(1);
@@ -69,11 +92,7 @@ export default function App() {
           <div>
             <p>Select Tip %</p>
             <div className="tips">
-              <TipButton text="5%" value={5} state={tip} setState={setTip} />
-              <TipButton text="10%" value={10} state={tip} setState={setTip} />
-              <TipButton text="15%" value={15} state={tip} setState={setTip} />
-              <TipButton text="25%" value={25} state={tip} setState={setTip} />
-              <TipButton text="50%" value={50} state={tip} setState={setTip} />
+              { tips.map(t => <TipButton key={t.value} state={tip} setState={setTip} {...t} />) }
               <InputTip state={tip} setState={setTip} maxValue={100} />
             </div>
           </div>
