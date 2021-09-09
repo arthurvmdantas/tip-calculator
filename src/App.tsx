@@ -1,4 +1,5 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
+import cx from "classnames";
 
 import "./styles.css";
 import Logo from "./assets/logo.svg";
@@ -66,12 +67,10 @@ export default function App() {
     setTip({ value: 5, custom: false });
   };
 
-  useEffect(() => {
-    document.documentElement.style.setProperty(
-      "--errorMessageDisplay",
-      !people ? "block" : "none"
-    );
-  }, [people]);
+  const classPeopleInputError = cx({
+    "control-people__error": true,
+    "control-people__error_visible": people === 0
+  });
 
   return (
     <div className="app">
@@ -103,7 +102,7 @@ export default function App() {
           <div className="control-people">
             <div className="control-people__container">
               <p className="control-people__label">Number of People</p>
-              <p className="control-people__error">Can't be zero</p>
+              <p className={classPeopleInputError}>Can't be zero</p>
             </div>
             <InputPeople
               state={people}

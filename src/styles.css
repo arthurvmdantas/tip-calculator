@@ -141,8 +141,12 @@ body {
 }
 
 .control-people__error {
-  display: var(--errorMessageDisplay);
+  display: none;
   color: hsl(12, 91%, 69%);
+}
+
+.control-people__error_visible {
+  display: block;
 }
 
 @media screen and (min-width: 800px) {
