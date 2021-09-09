@@ -1,22 +1,20 @@
-import React from "react";
-
 type InputPropsType = {
   state: number;
-  setState: React.Dispatch<React.SetStateAction<number>>;
+  setState: (value: number) => void;
   maxValue: number;
   title?: string;
 };
 
 type InputTipPropsType = {
   state: TipType;
-  setState: React.Dispatch<React.SetStateAction<TipType>>;
+  setState: (value: TipType) => void;
   maxValue: number;
   title?: string;
 };
 
 type ButtonPropsType = {
   state: TipType;
-  setState: React.Dispatch<React.SetStateAction<TipType>>;
+  setState: (value: TipType) => void;
   text: string;
   value: number;
 };

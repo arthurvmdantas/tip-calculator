@@ -23,7 +23,7 @@ export default function TipButton({
   */
   const btnClass = cx({
     [styles["button"]]: true,
-    [styles["tip-active"]]: !state.custom && state.value === value
+    [styles["button_active"]]: !state.custom && state.value === value
   });
 
   return (
