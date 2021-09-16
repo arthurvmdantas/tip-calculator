@@ -1,4 +1,5 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
+import cx from "classnames";
 
 import "./styles.css";
 import Logo from "./assets/logo.svg";
@@ -56,21 +57,23 @@ export default function App() {
   const [people, setPeople] = useState(1);
   const [tip, setTip] = useState<TipType>({ value: 5, custom: false });
 
+  const handlerSetBill = (value: number) => setBill(value);
+  const handlerSetPeople = (value: number) => setPeople(value);
+  const handlerSetTip = (value: TipType) => setTip(value);
+
   const handleReset = () => {
     setBill(0);
     setPeople(1);
     setTip({ value: 5, custom: false });
   };
 
-  useEffect(() => {
-    document.documentElement.style.setProperty(
-      "--errorMessageDisplay",
-      !people ? "block" : "none"
-    );
-  }, [people]);
+  const classPeopleInputError = cx({
+    "control-people__error": true,
+    "control-people__error_visible": people === 0
+  });
 
   return (
-    <div className="App">
+    <div className="app">
       <header>
         <h1>
           <picture>
@@ -78,51 +81,51 @@ export default function App() {
           </picture>
         </h1>
       </header>
-      <main>
+      <main className="main-container">
         <section className="controls">
-          <div>
-            <p className="topZero">Bill</p>
+          <div className="control-bill">
+            <p className="control-bill__label">Bill</p>
             <InputBill
               state={bill}
-              setState={setBill}
+              setState={handlerSetBill}
               maxValue={1_000_000}
               title="Max value: 1.000.000"
             />
           </div>
-          <div>
-            <p>Select Tip %</p>
-            <div className="tips">
-              { tips.map(t => <TipButton key={t.value} state={tip} setState={setTip} {...t} />) }
-              <InputTip state={tip} setState={setTip} maxValue={100} />
+          <div className="control-tip">
+            <p className="control-tip__label">Select Tip %</p>
+            <div className="control-tip__buttons">
+              { tips.map(t => <TipButton key={t.value} state={tip} setState={handlerSetTip} {...t} />) }
+              <InputTip state={tip} setState={handlerSetTip} maxValue={100} />
             </div>
           </div>
-          <div>
-            <div className="labelPeople">
-              <p>Number of People</p>
-              <p className="errorMessage">Can't be zero</p>
+          <div className="control-people">
+            <div className="control-people__container">
+              <p className="control-people__label">Number of People</p>
+              <p className={classPeopleInputError}>Can't be zero</p>
             </div>
             <InputPeople
               state={people}
-              setState={setPeople}
+              setState={handlerSetPeople}
               maxValue={1_000}
               title="Max value: 1.000"
             />
           </div>
         </section>
         <section className="result">
-          <div className="tip-label">
-            Tip Amount<span>/ person</span>
+          <div className="result__tip-label-container">
+            Tip Amount<span className="result__per-person">/ person</span>
           </div>
-          <div className="tip-result" id="amount-person">
+          <div className="result__tip-result-container" id="amount-person">
             ${tipAmount(bill, tip.value, people).toFixed(2)}
           </div>
-          <div className="total-label">
-            Total<span>/ person</span>
+          <div className="result__total-label">
+            Total<span className="result__per-person">/ person</span>
           </div>
-          <div className="total-result" id="total-person">
+          <div className="result__total-result-container" id="total-person">
             ${totalPerPerson(bill, tip.value, people).toFixed(2)}
           </div>
-          <button className="button-reset" onClick={handleReset}>
+          <button className="result__button-reset" onClick={handleReset}>
             RESET
           </button>
         </section>

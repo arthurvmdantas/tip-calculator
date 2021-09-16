@@ -31,7 +31,7 @@ export default function InputPeople({
 
   const inputClass = cx({
     [styles["input"]]: true,
-    [styles["warning"]]: state === 0
+    [styles["input_outline_orange"]]: state === 0
   });
 
   return (

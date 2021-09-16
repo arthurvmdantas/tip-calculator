@@ -18,6 +18,6 @@
   color: var(--very-dark-cyan);
 }
 
-.tip-active {
+.button_active {
   background-color: var(--strong-cyan);
 }
